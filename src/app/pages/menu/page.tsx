@@ -36,10 +36,12 @@ export default function FluxoPage() {
 
         {/* Sidebar */}
         {sidebarOpen && (
-          <aside className="w-64 bg-[#0d1224] text-white p-4 fixed top-0 left-0 h-full z-40 shadow-lg">
+          // <aside className="w-64 bg-[#0d1224] text-white p-4 fixed top-0 left-0 h-full z-40 shadow-lg">
+          <aside className="w-80 bg-[#0d1224] text-white p-4 overflow-y-auto max-h-screen fixed top-0 left-0 h-full z-40 shadow-lg">
             {/* Logo + Fechar */}
+            {/* <div className="flex items-center justify-between mb-6"> */}
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-blue-400">Fluxo</h2>
+              <h2 className="text-2xl font-bold text-blue-400">Fluxo2</h2>
               <button
                 onClick={() => setSidebarOpen(false)}
                 className="text-white text-xl hover:text-red-400"
@@ -96,25 +98,292 @@ export default function FluxoPage() {
               )}
             </div>
 
-            {/* Menu: Category */}
+            {/* Menu: Prestadores de Serviço & Produtos para Revenda */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("category")}
+                onClick={() => toggleSubmenu("prestadores_produtos")}
                 className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
               >
-                <span>Category</span>
-                <span>{submenuOpen["category"] ? "⬆️" : "⬇️"}</span>
+                <span>Prestadores de Serviço & Produtos para Revenda</span>
+                <span>{submenuOpen["prestadores_produtos"] ? "⬆️" : "⬇️"}</span>
               </button>
-              {submenuOpen["category"] && (
+
+              {submenuOpen["prestadores_produtos"] && (
+                <ul className="ml-4 mt-2 space-y-1 text-sm">
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Prestadores de Serviço
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Vestuário para Revenda
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Outro Custo Variável
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Alimentos para Revenda
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Insumos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Total Custos Variáveis
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </div>
+
+            {/* Menu: Despesas com Marketing */}
+            <div className="mt-4">
+              <button
+                onClick={() => toggleSubmenu("marketing")}
+                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+              >
+                <span>Despesas Marketing</span>
+                <span>{submenuOpen["marketing"] ? "⬆️" : "⬇️"}</span>
+              </button>
+
+              {submenuOpen["marketing"] && (
+                <ul className="ml-4 mt-2 space-y-1 text-sm">
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Agência & Equipe externa
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Ferramentas de MKT
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Outra ação de MKT
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Tráfego Pago
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Marketing offline
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-500">
+                      Total Marketing
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </div>
+
+            {/* Menu: Despesas & Custos Fixos */}
+            <div className="mt-4">
+              <button
+                onClick={() => toggleSubmenu("custosFixos")}
+                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+              >
+                <span>Despesas & Custos Fixos</span>
+                <span>{submenuOpen["custosFixos"] ? "⬆️" : "⬇️"}</span>
+              </button>
+
+              {submenuOpen["custosFixos"] && (
+                <ul className="ml-4 mt-2 space-y-1 text-sm">
+                  {[
+                    "Pagamento do Pessoal",
+                    "Encargos Sociais",
+                    "Vale Transporte",
+                    "Cesta Básica (Benefícios)",
+                    "Medicina do Trabalho, Uniforme e Outros",
+                    "Despesas Sindicais",
+                    "Prêmios & Bonificações",
+                    "Pró-labore",
+                    "Tarifas Públicas",
+                    "Contábil & Legal",
+                    "Passivos Trabalhistas",
+                    "Aluguel + IPTU",
+                    "Material Escritório & Limpeza",
+                    "Seguro Equipamentos & Predial",
+                    "Royalties & Licenças",
+                    "Despesas Bancárias",
+                    "Software",
+                    "Gráficas",
+                    "Despesas Prediais",
+                    "Equipamentos",
+                    "Acessórios",
+                    "Lavanderia",
+                    "Outras Despesas",
+                    "Total Custos Fixos",
+                  ].map((item, idx) => (
+                    <li key={idx}>
+                      <a
+                        href="#"
+                        className={`block hover:text-blue-500 ${
+                          item.includes("Totalx")
+                            ? "font-bold text-blue-700"
+                            : ""
+                        }`}
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            {/* Menu: impostos_comissoes */}
+            <div className="mt-4">
+              <button
+                onClick={() => toggleSubmenu("impostos_comissoes")}
+                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+              >
+                <span>Impostos & Comissões</span>
+                <span>{submenuOpen["impostos_comissoes"] ? "⬆️" : "⬇️"}</span>
+              </button>
+              {submenuOpen["impostos_comissoes"] && (
                 <ul className="ml-4 mt-2 space-y-1">
                   <li>
                     <a href="#" className="block hover:text-blue-400">
-                      Cat 1
+                      Impostos
                     </a>
                   </li>
                   <li>
                     <a href="#" className="block hover:text-blue-400">
-                      Cat 2
+                      Comissões
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </div>
+
+            {/* Menu: Investimentos */}
+            <div className="mt-4">
+              <button
+                onClick={() => toggleSubmenu("investimentos")}
+                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+              >
+                <span>Investimentos</span>
+                <span>{submenuOpen["investimentos"] ? "⬆️" : "⬇️"}</span>
+              </button>
+              {submenuOpen["investimentos"] && (
+                <ul className="ml-4 mt-2 space-y-1">
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Compras de Ativos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Melhorias
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Treinamentos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Aplicações Financeia
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Total Investimentos
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </div>
+
+            {/* Menu: Devoluções */}
+            <div className="mt-4">
+              <button
+                onClick={() => toggleSubmenu("Devolucoes")}
+                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+              >
+                <span>Devoluções</span>
+                <span>{submenuOpen["Devolucoes"] ? "⬆️" : "⬇️"}</span>
+              </button>
+              {submenuOpen["Devolucoes"] && (
+                <ul className="ml-4 mt-2 space-y-1">
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Cheque Devolvidos
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Devoluções
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </div>
+
+            {/* Menu: Financiamentos */}
+            <div className="mt-4">
+              <button
+                onClick={() => toggleSubmenu("financiamentos")}
+                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+              >
+                <span>Financiamentos</span>
+                <span>{submenuOpen["financiamentos"] ? "⬆️" : "⬇️"}</span>
+              </button>
+              {submenuOpen["financiamentos"] && (
+                <ul className="ml-4 mt-2 space-y-1">
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Juros Bancários
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Parcelamentos
+                    </a>
+                  </li>
+                </ul>
+              )}
+            </div>
+
+            {/* Menu: Relatórios */}
+            <div className="mt-4">
+              <button
+                onClick={() => toggleSubmenu("relatorios")}
+                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+              >
+                <span>Relatórios</span>
+                <span>{submenuOpen["relatorios"] ? "⬆️" : "⬇️"}</span>
+              </button>
+              {submenuOpen["relatorios"] && (
+                <ul className="ml-4 mt-2 space-y-1">
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Fluxo de Caixa Diário
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Relatório Mensal de Caixa
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:text-blue-400">
+                      Análise dos Períodos
                     </a>
                   </li>
                 </ul>
