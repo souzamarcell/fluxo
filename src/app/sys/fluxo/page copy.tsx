@@ -3,12 +3,6 @@
 import { useRouter } from "next/navigation";
 import { AuthGuard } from "@/app/components/AuthGuard";
 
-import MenuEntradas from "@/app/components/MenuEntradas";
-
-// export default function HomePage() {
-//   return <MenuEntradas />;
-// }
-
 export default function FluxoPage() {
   const router = useRouter();
 
@@ -23,8 +17,6 @@ export default function FluxoPage() {
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Bem-vindo, Rodrigo! 🚀
         </h1>
-
-        <MenuEntradas />
 
         <button
           onClick={handleLogout}

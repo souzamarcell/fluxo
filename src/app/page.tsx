@@ -15,7 +15,7 @@ export default function Home() {
     if (email === 'rodrigo@gmail.com' && senha === '123') {
       setErro('');
       localStorage.setItem('loggedIn', 'true'); // <-- Marca como logado
-      router.push('/sys/fluxo');
+      router.push('pages/menu');
     } else {
       setErro('E-mail ou senha inválidos.');
     }

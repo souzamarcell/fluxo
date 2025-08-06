@@ -1,30 +1,22 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { AuthGuard } from "@/app/components/AuthGuard";
+import { useRouter } from 'next/navigation';
+import { AuthGuard } from '@/app/components/AuthGuard';
 
-import MenuEntradas from "@/app/components/MenuEntradas";
-
-// export default function HomePage() {
-//   return <MenuEntradas />;
-// }
-
-export default function FluxoPage() {
+export default function EmprestimosPage() {
   const router = useRouter();
 
   const handleLogout = () => {
-    localStorage.removeItem("loggedIn");
-    router.push("/");
+    localStorage.removeItem('loggedIn');
+    router.push('/');
   };
 
   return (
     <AuthGuard>
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 gap-4">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Bem-vindo, Rodrigo! 🚀
+          Empréstimos
         </h1>
-
-        <MenuEntradas />
 
         <button
           onClick={handleLogout}

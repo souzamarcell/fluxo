@@ -1,9 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { AuthGuard } from "@/app/components/AuthGuard";
+import { AuthGuard } from "@/components/AuthGuard";
 
-import MenuEntradas from "@/app/components/MenuEntradas";
+import MenuEntradas from "@/components/MenuEntradas";
 
 // export default function HomePage() {
 //   return <MenuEntradas />;
