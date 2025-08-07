@@ -7,9 +7,9 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
-  const router = useRouter(); 
+  const router = useRouter();
 
- const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (email === 'rodrigo@gmail.com' && senha === '123') {
@@ -30,7 +30,10 @@ export default function Home() {
         </h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
-            <label htmlFor="email" className="block text-sm text-gray-700 dark:text-gray-300 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm text-gray-700 dark:text-gray-300 mb-1"
+            >
               E-mail
             </label>
             <input
@@ -44,7 +47,10 @@ export default function Home() {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm text-gray-700 dark:text-gray-300 mb-1">
+            <label
+              htmlFor="password"
+              className="block text-sm text-gray-700 dark:text-gray-300 mb-1"
+            >
               Senha
             </label>
             <input
@@ -57,15 +63,14 @@ export default function Home() {
               required
             />
           </div>
-          {erro && (
-            <p className="text-red-500 text-sm text-center">{erro}</p>
-          )}
+          {erro && <p className="text-red-500 text-sm text-center">{erro}</p>}
           <button
             type="submit"
             className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors"
           >
             Entrar
           </button>
+          <span className="text-[10px] text-gray-600">Versão 1.0.7</span>
         </form>
       </div>
     </div>

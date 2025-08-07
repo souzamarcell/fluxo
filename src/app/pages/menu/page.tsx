@@ -21,10 +21,93 @@ export default function FluxoPage() {
     setSubmenuOpen((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+    const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
+  const categorias = [
+    {
+      nome: 'Lançamento Entradas',
+      total: 1200,
+      cor: 'from-pink-500 to-pink-400',
+      icone: '💸',
+    },
+    {
+      nome: 'Custos Variáveis',
+      total: 850,
+      cor: 'from-cyan-500 to-cyan-400',
+      icone: '📉',
+    },
+    {
+      nome: 'Despesas Marketing',
+      total: 430,
+      cor: 'from-teal-500 to-teal-400',
+      icone: '📢',
+    },
+    {
+      nome: 'Custo Fixo',
+      total: 300,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🏢',
+    },
+    {
+      nome: 'Imposto & Comissões',
+      total: 270,
+      cor: 'from-yellow-500 to-yellow-400',
+      icone: '📊',
+    },
+    {
+      nome: 'Investimentos',
+      total: 940,
+      cor: 'from-green-500 to-green-400',
+      icone: '📈',
+    },
+    {
+      nome: 'Devoluções',
+      total: 150,
+      cor: 'from-red-500 to-red-400',
+      icone: '🔁',
+    },
+    {
+      nome: 'Financiamentos',
+      total: 1100,
+      cor: 'from-purple-500 to-purple-400',
+      icone: '💳',
+    },
+    {
+      nome: 'Relatórios',
+      total: 75,
+      cor: 'from-blue-500 to-blue-400',
+      icone: '📑',
+    },
+  ];
+
   return (
     <AuthGuard>
       <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900 relative">
         {/* Botão para abrir Sidebar */}
+        {!sidebarOpen && (
+          <div className="fixed top-4 left-4 z-50 flex flex-col space-y-2">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className=" top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            >
+              ☰ Menu
+            </button>
+{/*
+            <button
+              // onClick={() => setSidebarOpen(true)}
+              onClick={() => router.push('/pages/menuQuadrado')}
+              className=" top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            >
+              ☰ Menu 2
+            </button> */}
+          </div>
+        )}
+
         {!sidebarOpen && (
           <button
             onClick={() => setSidebarOpen(true)}
@@ -57,7 +140,7 @@ export default function FluxoPage() {
             <div>
               <button
                 onClick={() => toggleSubmenu("lancamento")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Lançamento Entradas</span>
                 <span>{submenuOpen["lancamento"] ? "⬆️" : "⬇️"}</span>
@@ -102,9 +185,13 @@ export default function FluxoPage() {
             <div className="mt-4">
               <button
                 onClick={() => toggleSubmenu("prestadores_produtos")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
-                <span>Prestadores de Serviço<br />Produtos para Revenda</span>
+                <span>
+                  Prestadores de Serviço
+                  <br />
+                  Produtos para Revenda
+                </span>
                 <span>{submenuOpen["prestadores_produtos"] ? "⬆️" : "⬇️"}</span>
               </button>
 
@@ -148,7 +235,7 @@ export default function FluxoPage() {
             <div className="mt-4">
               <button
                 onClick={() => toggleSubmenu("marketing")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Despesas Marketing</span>
                 <span>{submenuOpen["marketing"] ? "⬆️" : "⬇️"}</span>
@@ -194,7 +281,7 @@ export default function FluxoPage() {
             <div className="mt-4">
               <button
                 onClick={() => toggleSubmenu("custosFixos")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Despesas & Custos Fixos</span>
                 <span>{submenuOpen["custosFixos"] ? "⬆️" : "⬇️"}</span>
@@ -249,7 +336,7 @@ export default function FluxoPage() {
             <div className="mt-4">
               <button
                 onClick={() => toggleSubmenu("impostos_comissoes")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Impostos & Comissões</span>
                 <span>{submenuOpen["impostos_comissoes"] ? "⬆️" : "⬇️"}</span>
@@ -274,7 +361,7 @@ export default function FluxoPage() {
             <div className="mt-4">
               <button
                 onClick={() => toggleSubmenu("investimentos")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Investimentos</span>
                 <span>{submenuOpen["investimentos"] ? "⬆️" : "⬇️"}</span>
@@ -314,7 +401,7 @@ export default function FluxoPage() {
             <div className="mt-4">
               <button
                 onClick={() => toggleSubmenu("Devolucoes")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Devoluções</span>
                 <span>{submenuOpen["Devolucoes"] ? "⬆️" : "⬇️"}</span>
@@ -339,7 +426,7 @@ export default function FluxoPage() {
             <div className="mt-4">
               <button
                 onClick={() => toggleSubmenu("financiamentos")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Financiamentos</span>
                 <span>{submenuOpen["financiamentos"] ? "⬆️" : "⬇️"}</span>
@@ -364,7 +451,7 @@ export default function FluxoPage() {
             <div className="mt-4">
               <button
                 onClick={() => toggleSubmenu("relatorios")}
-                className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
+                className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Relatórios</span>
                 <span>{submenuOpen["relatorios"] ? "⬆️" : "⬇️"}</span>
@@ -410,16 +497,37 @@ export default function FluxoPage() {
         )}
 
         {/* Conteúdo Principal */}
-        <main className="flex-1 flex flex-col items-center justify-center p-8 ml-0 lg:ml-64">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Bem-vindo, Rodrigo! 🚀
-          </h1>
-          <button
-            onClick={handleLogout}
-            className="mt-4 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-          >
-            Sair
-          </button>
+        <main className="flex-1 flex flex-col items-center justify-center p-1 ml-0 lg:ml-64">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 place-items-center">
+            {categorias.map((cat, i) => (
+              <div
+                key={i}
+                style={{ width: '146px', height: '80px' }}
+                className={`rounded-xl bg-gradient-to-r ${cat.cor} text-white px-2 py-2 shadow-md flex items-center justify-between`}
+              >
+                {/* Coluna esquerda: nome e total fixado no final */}
+                <div className="flex flex-col justify-between h-full">
+                  <h2 className="text-xs font-bold leading-tight">
+                    {cat.nome}
+                  </h2>
+                  <p className="text-xs">Total {formatter.format(cat.total)}</p>
+                </div>
+
+                {/* Ícone à direita */}
+                <div className="text-xl self-center">{cat.icone}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex gap-6 mt-4">
+            <button
+              onClick={handleLogout}
+              className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-800"
+            >
+              Login
+            </button>
+
+          </div>
         </main>
       </div>
     </AuthGuard>
