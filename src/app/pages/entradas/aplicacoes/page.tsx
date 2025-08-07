@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { AuthGuard } from '@/app/components/AuthGuard';
+import { AuthGuard } from '@/components/AuthGuard';
 
 export default function AplicacoesPage() {
   const router = useRouter();
