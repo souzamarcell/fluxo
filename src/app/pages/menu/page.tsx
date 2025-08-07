@@ -41,7 +41,7 @@ export default function FluxoPage() {
             {/* Logo + Fechar */}
             {/* <div className="flex items-center justify-between mb-6"> */}
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-blue-400">Fluxo2</h2>
+              <h2 className="text-2xl font-bold text-blue-400">Fluxo</h2>
               <button
                 onClick={() => setSidebarOpen(false)}
                 className="text-white text-xl hover:text-red-400"
@@ -104,7 +104,7 @@ export default function FluxoPage() {
                 onClick={() => toggleSubmenu("prestadores_produtos")}
                 className="w-full flex justify-between items-center px-2 py-2 hover:bg-gray-800 rounded"
               >
-                <span>Prestadores de Serviço & Produtos para Revenda</span>
+                <span>Prestadores de Serviço<br />Produtos para Revenda</span>
                 <span>{submenuOpen["prestadores_produtos"] ? "⬆️" : "⬇️"}</span>
               </button>
 
