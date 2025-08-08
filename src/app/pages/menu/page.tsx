@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { AuthGuard } from "@/components/AuthGuard";
-import { useState } from "react";
-import Image from "next/image";
+import { useRouter } from 'next/navigation';
+import { AuthGuard } from '@/components/AuthGuard';
+import { useState } from 'react';
+import Image from 'next/image';
 
 export default function FluxoPage() {
   const router = useRouter();
@@ -13,15 +13,15 @@ export default function FluxoPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false); // 👈 controla a sidebar
 
   const handleLogout = () => {
-    localStorage.removeItem("loggedIn");
-    router.push("/");
+    localStorage.removeItem('loggedIn');
+    router.push('/');
   };
 
   const toggleSubmenu = (id: string) => {
     setSubmenuOpen((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-    const formatter = new Intl.NumberFormat('pt-BR', {
+  const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
     minimumFractionDigits: 2,
@@ -34,54 +34,63 @@ export default function FluxoPage() {
       total: 1200,
       cor: 'from-pink-500 to-pink-400',
       icone: '💸',
+      abas: '/pages/entradas',
     },
     {
-      nome: 'Custos Variáveis',
+      nome: 'Prestadores Serviço, Produtos Revenda',
       total: 850,
       cor: 'from-cyan-500 to-cyan-400',
       icone: '📉',
+      abas: '/pages/custosV',
     },
     {
       nome: 'Despesas Marketing',
       total: 430,
       cor: 'from-teal-500 to-teal-400',
       icone: '📢',
+      abas: '/pages/marketing',
     },
     {
       nome: 'Custo Fixo',
       total: 300,
       cor: 'from-indigo-500 to-indigo-400',
       icone: '🏢',
+      abas: '/pages/custoF',
     },
     {
       nome: 'Imposto & Comissões',
       total: 270,
       cor: 'from-yellow-500 to-yellow-400',
       icone: '📊',
+      abas: '/pages/impostos',
     },
     {
       nome: 'Investimentos',
       total: 940,
       cor: 'from-green-500 to-green-400',
       icone: '📈',
+      abas: '/pages/investimentos',
     },
     {
       nome: 'Devoluções',
       total: 150,
       cor: 'from-red-500 to-red-400',
       icone: '🔁',
+      abas: '/pages/devolucoes',
     },
     {
       nome: 'Financiamentos',
       total: 1100,
       cor: 'from-purple-500 to-purple-400',
       icone: '💳',
+      abas: '/pages/financiamentos',
     },
     {
       nome: 'Relatórios',
       total: 75,
       cor: 'from-blue-500 to-blue-400',
       icone: '📑',
+      abas: '/pages/relatorios',
     },
   ];
 
@@ -90,21 +99,16 @@ export default function FluxoPage() {
       <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900 relative">
         {/* Botão para abrir Sidebar */}
         {!sidebarOpen && (
-          <div className="fixed top-4 left-4 z-50 flex flex-col space-y-2">
+          <div className="fixed top-4 left-4 z-50 flex items-center space-x-2">
             <button
               onClick={() => setSidebarOpen(true)}
               className=" top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
             >
               ☰ Menu
             </button>
-{/*
-            <button
-              // onClick={() => setSidebarOpen(true)}
-              onClick={() => router.push('/pages/menuQuadrado')}
-              className=" top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-            >
-              ☰ Menu 2
-            </button> */}
+            <span className="text-sm text-gray-600 font-medium">
+              Principal
+            </span>
           </div>
         )}
 
@@ -139,13 +143,13 @@ export default function FluxoPage() {
             {/* Menu: LANÇAMENTO ENTRADAS */}
             <div>
               <button
-                onClick={() => toggleSubmenu("lancamento")}
+                onClick={() => toggleSubmenu('lancamento')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Lançamento Entradas</span>
-                <span>{submenuOpen["lancamento"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['lancamento'] ? '⬆️' : '⬇️'}</span>
               </button>
-              {submenuOpen["lancamento"] && (
+              {submenuOpen['lancamento'] && (
                 <ul className="ml-4 mt-2 space-y-1">
                   <li>
                     <a href="#" className="block hover:text-blue-400">
@@ -184,7 +188,7 @@ export default function FluxoPage() {
             {/* Menu: Prestadores de Serviço & Produtos para Revenda */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("prestadores_produtos")}
+                onClick={() => toggleSubmenu('prestadores_produtos')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>
@@ -192,10 +196,10 @@ export default function FluxoPage() {
                   <br />
                   Produtos para Revenda
                 </span>
-                <span>{submenuOpen["prestadores_produtos"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['prestadores_produtos'] ? '⬆️' : '⬇️'}</span>
               </button>
 
-              {submenuOpen["prestadores_produtos"] && (
+              {submenuOpen['prestadores_produtos'] && (
                 <ul className="ml-4 mt-2 space-y-1 text-sm">
                   <li>
                     <a href="#" className="block hover:text-blue-500">
@@ -234,14 +238,14 @@ export default function FluxoPage() {
             {/* Menu: Despesas com Marketing */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("marketing")}
+                onClick={() => toggleSubmenu('marketing')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Despesas Marketing</span>
-                <span>{submenuOpen["marketing"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['marketing'] ? '⬆️' : '⬇️'}</span>
               </button>
 
-              {submenuOpen["marketing"] && (
+              {submenuOpen['marketing'] && (
                 <ul className="ml-4 mt-2 space-y-1 text-sm">
                   <li>
                     <a href="#" className="block hover:text-blue-500">
@@ -280,48 +284,48 @@ export default function FluxoPage() {
             {/* Menu: Despesas & Custos Fixos */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("custosFixos")}
+                onClick={() => toggleSubmenu('custosFixos')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Despesas & Custos Fixos</span>
-                <span>{submenuOpen["custosFixos"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['custosFixos'] ? '⬆️' : '⬇️'}</span>
               </button>
 
-              {submenuOpen["custosFixos"] && (
+              {submenuOpen['custosFixos'] && (
                 <ul className="ml-4 mt-2 space-y-1 text-sm">
                   {[
-                    "Pagamento do Pessoal",
-                    "Encargos Sociais",
-                    "Vale Transporte",
-                    "Cesta Básica (Benefícios)",
-                    "Medicina do Trabalho, Uniforme e Outros",
-                    "Despesas Sindicais",
-                    "Prêmios & Bonificações",
-                    "Pró-labore",
-                    "Tarifas Públicas",
-                    "Contábil & Legal",
-                    "Passivos Trabalhistas",
-                    "Aluguel + IPTU",
-                    "Material Escritório & Limpeza",
-                    "Seguro Equipamentos & Predial",
-                    "Royalties & Licenças",
-                    "Despesas Bancárias",
-                    "Software",
-                    "Gráficas",
-                    "Despesas Prediais",
-                    "Equipamentos",
-                    "Acessórios",
-                    "Lavanderia",
-                    "Outras Despesas",
-                    "Total Custos Fixos",
+                    'Pagamento do Pessoal',
+                    'Encargos Sociais',
+                    'Vale Transporte',
+                    'Cesta Básica (Benefícios)',
+                    'Medicina do Trabalho, Uniforme e Outros',
+                    'Despesas Sindicais',
+                    'Prêmios & Bonificações',
+                    'Pró-labore',
+                    'Tarifas Públicas',
+                    'Contábil & Legal',
+                    'Passivos Trabalhistas',
+                    'Aluguel + IPTU',
+                    'Material Escritório & Limpeza',
+                    'Seguro Equipamentos & Predial',
+                    'Royalties & Licenças',
+                    'Despesas Bancárias',
+                    'Software',
+                    'Gráficas',
+                    'Despesas Prediais',
+                    'Equipamentos',
+                    'Acessórios',
+                    'Lavanderia',
+                    'Outras Despesas',
+                    'Total Custos Fixos',
                   ].map((item, idx) => (
                     <li key={idx}>
                       <a
                         href="#"
                         className={`block hover:text-blue-500 ${
-                          item.includes("Totalx")
-                            ? "font-bold text-blue-700"
-                            : ""
+                          item.includes('Totalx')
+                            ? 'font-bold text-blue-700'
+                            : ''
                         }`}
                       >
                         {item}
@@ -335,13 +339,13 @@ export default function FluxoPage() {
             {/* Menu: impostos_comissoes */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("impostos_comissoes")}
+                onClick={() => toggleSubmenu('impostos_comissoes')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Impostos & Comissões</span>
-                <span>{submenuOpen["impostos_comissoes"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['impostos_comissoes'] ? '⬆️' : '⬇️'}</span>
               </button>
-              {submenuOpen["impostos_comissoes"] && (
+              {submenuOpen['impostos_comissoes'] && (
                 <ul className="ml-4 mt-2 space-y-1">
                   <li>
                     <a href="#" className="block hover:text-blue-400">
@@ -360,13 +364,13 @@ export default function FluxoPage() {
             {/* Menu: Investimentos */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("investimentos")}
+                onClick={() => toggleSubmenu('investimentos')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Investimentos</span>
-                <span>{submenuOpen["investimentos"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['investimentos'] ? '⬆️' : '⬇️'}</span>
               </button>
-              {submenuOpen["investimentos"] && (
+              {submenuOpen['investimentos'] && (
                 <ul className="ml-4 mt-2 space-y-1">
                   <li>
                     <a href="#" className="block hover:text-blue-400">
@@ -400,13 +404,13 @@ export default function FluxoPage() {
             {/* Menu: Devoluções */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("Devolucoes")}
+                onClick={() => toggleSubmenu('Devolucoes')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Devoluções</span>
-                <span>{submenuOpen["Devolucoes"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['Devolucoes'] ? '⬆️' : '⬇️'}</span>
               </button>
-              {submenuOpen["Devolucoes"] && (
+              {submenuOpen['Devolucoes'] && (
                 <ul className="ml-4 mt-2 space-y-1">
                   <li>
                     <a href="#" className="block hover:text-blue-400">
@@ -425,13 +429,13 @@ export default function FluxoPage() {
             {/* Menu: Financiamentos */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("financiamentos")}
+                onClick={() => toggleSubmenu('financiamentos')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Financiamentos</span>
-                <span>{submenuOpen["financiamentos"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['financiamentos'] ? '⬆️' : '⬇️'}</span>
               </button>
-              {submenuOpen["financiamentos"] && (
+              {submenuOpen['financiamentos'] && (
                 <ul className="ml-4 mt-2 space-y-1">
                   <li>
                     <a href="#" className="block hover:text-blue-400">
@@ -450,13 +454,13 @@ export default function FluxoPage() {
             {/* Menu: Relatórios */}
             <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu("relatorios")}
+                onClick={() => toggleSubmenu('relatorios')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
                 <span>Relatórios</span>
-                <span>{submenuOpen["relatorios"] ? "⬆️" : "⬇️"}</span>
+                <span>{submenuOpen['relatorios'] ? '⬆️' : '⬇️'}</span>
               </button>
-              {submenuOpen["relatorios"] && (
+              {submenuOpen['relatorios'] && (
                 <ul className="ml-4 mt-2 space-y-1">
                   <li>
                     <a href="#" className="block hover:text-blue-400">
@@ -500,22 +504,21 @@ export default function FluxoPage() {
         <main className="flex-1 flex flex-col items-center justify-center p-1 ml-0 lg:ml-64">
           <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 place-items-center">
             {categorias.map((cat, i) => (
-              <div
+              <button
                 key={i}
+                type="button"
+                onClick={() => cat.abas && router.push(cat.abas)}
                 style={{ width: '146px', height: '80px' }}
-                className={`rounded-xl bg-gradient-to-r ${cat.cor} text-white px-2 py-2 shadow-md flex items-center justify-between`}
+                className={`rounded-xl bg-gradient-to-r ${cat.cor} text-white px-2 py-2 shadow-md flex items-center justify-between transition transform hover:scale-105 active:scale-95`}
               >
-                {/* Coluna esquerda: nome e total fixado no final */}
-                <div className="flex flex-col justify-between h-full">
+                <div className="flex flex-col justify-between h-full text-left">
                   <h2 className="text-xs font-bold leading-tight">
                     {cat.nome}
                   </h2>
                   <p className="text-xs">Total {formatter.format(cat.total)}</p>
                 </div>
-
-                {/* Ícone à direita */}
                 <div className="text-xl self-center">{cat.icone}</div>
-              </div>
+              </button>
             ))}
           </div>
 
@@ -526,7 +529,6 @@ export default function FluxoPage() {
             >
               Login
             </button>
-
           </div>
         </main>
       </div>

@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { AuthGuard } from '@/components/AuthGuard';
 
-export default function EmprestimosPage() {
+export default function EntradasSistemaPage() {
   const router = useRouter();
 
   const handleLogout = () => {
@@ -18,12 +18,20 @@ export default function EmprestimosPage() {
           Empréstimos
         </h1>
 
-        <button
-          onClick={handleLogout}
-          className="mt-4 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-        >
-          Sair
-        </button>
+        <div className="flex gap-6 mt-4">
+          <button
+            onClick={handleLogout}
+            className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-800"
+          >
+            Login
+          </button>
+          <button
+            onClick={() => router.push('/pages/entradas')}
+            className="px-6 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-600"
+          >
+            Voltar
+          </button>
+        </div>
       </div>
     </AuthGuard>
   );

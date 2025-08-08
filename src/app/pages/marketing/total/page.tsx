@@ -15,7 +15,7 @@ export default function EntradasSistemaPage() {
     <AuthGuard>
       <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 gap-4">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white text-center">
-          Previsão de Vendas
+           Total Marketing
         </h1>
 
         <div className="flex gap-6 mt-4">
@@ -26,7 +26,7 @@ export default function EntradasSistemaPage() {
             Login
           </button>
           <button
-            onClick={() => router.push('/pages/entradas')}
+            onClick={() => router.push('/pages/marketing')}
             className="px-6 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-600"
           >
             Voltar

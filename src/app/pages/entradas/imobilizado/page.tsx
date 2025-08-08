@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { AuthGuard } from '@/components/AuthGuard';
 
-export default function VendaImobilizadoPage() {
+export default function EntradasSistemaPage() {
   const router = useRouter();
 
   const handleLogout = () => {
@@ -13,17 +13,25 @@ export default function VendaImobilizadoPage() {
 
   return (
     <AuthGuard>
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 gap-4">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Venda de Imobilizado
+      <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 gap-4">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white text-center">
+           Venda de Imobilizado
         </h1>
 
-        <button
-          onClick={handleLogout}
-          className="mt-4 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-        >
-          Sair
-        </button>
+        <div className="flex gap-6 mt-4">
+          <button
+            onClick={handleLogout}
+            className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-800"
+          >
+            Login
+          </button>
+          <button
+            onClick={() => router.push('/pages/entradas')}
+            className="px-6 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-600"
+          >
+            Voltar
+          </button>
+        </div>
       </div>
     </AuthGuard>
   );

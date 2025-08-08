@@ -5,6 +5,7 @@
   "workbench.editor.labelFormat": "short", // nome da pasta na aba
   "workbench.iconTheme": "material-icon-theme",
   "workbench.tree.indent": 15, // espaço entre os icones das pastas ao lado
+
   // ** Titulos - Stilos **
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#212dd7",
@@ -94,7 +95,6 @@
   // ** Terminal Git Bash **
   "terminal.integrated.defaultProfile.windows": "Git Bash",
 
-  "cSpell.words": [
-    "Xmateria"
-  ]
+  "cSpell.language": "en,pt,pt_BR",
+  "cSpell.words": ["emprestimos", "lancamento", "Xmateria"]
 }
