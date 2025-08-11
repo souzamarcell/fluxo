@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { AuthGuard } from '@/components/AuthGuard';
 import { useState } from 'react';
 import Image from 'next/image';
+import { Header } from '@/components/Header';
 
 export default function FluxoPage() {
   const router = useRouter();
@@ -76,20 +77,8 @@ export default function FluxoPage() {
   return (
     <AuthGuard>
       <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900 relative">
-        {/* Botão para abrir Sidebar */}
-        {!sidebarOpen && (
-          <div className="fixed top-4 left-4 z-50 flex items-center space-x-2">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className=" top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-            >
-              ☰ Menu
-            </button>
-            <span className="text-sm text-gray-600 font-medium">
-              Lançamento de Entradas
-            </span>
-          </div>
-        )}
+        {/* <Header setSidebarOpen={setSidebarOpen} /> */}
+        <Header setSidebarOpen={setSidebarOpen} title="Lançamentos de Entradas" />
 
         {/* Sidebar */}
         {sidebarOpen && (
@@ -175,8 +164,9 @@ export default function FluxoPage() {
         )}
 
         {/* Conteúdo Principal */}
-        <main className="flex-1 flex flex-col items-center justify-center p-1 ml-0 lg:ml-64">
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 place-items-center">
+        {/* <main className="flex-1 flex flex-col items-center p-1 ml-0 lg:ml-64"> */}
+        <main className="flex-1 flex flex-col items-center justify-start p-1 pt-[70px] ml-0 lg:ml-64">
+          <div className="mt-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 place-items-center">
             {categorias.map((cat, i) => (
               <button
                 key={i}

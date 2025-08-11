@@ -30,45 +30,171 @@ export default function FluxoPage() {
 
   const categorias = [
     {
-      nome: 'Entradas (Sistema)',
+      nome: 'Pagamento do Pessoal',
       total: 1200,
-      cor: 'from-pink-500 to-pink-400',
-      icone: '💼', // Representa algo mais corporativo/sistema
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '💼', // Trabalho / pessoal
       abas: '/pages/entradas/sistema',
     },
     {
-      nome: 'Empréstimos',
+      nome: 'Encargos Sociais',
       total: 850,
-      cor: 'from-pink-500 to-pink-400',
-      icone: '💰', // Dinheiro em empréstimo
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '📑', // Documentos fiscais
       abas: '/pages/entradas/emprestimos',
     },
     {
-      nome: 'Resgate de aplicações Financeiras',
+      nome: 'Vale Transporte',
       total: 430,
-      cor: 'from-pink-500 to-pink-400',
-      icone: '🏦', // Banco ou aplicações financeiras
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🚌', // Transporte
       abas: '/pages/entradas/aplicacoes',
     },
     {
-      nome: 'Previsão de Vendas',
+      nome: 'Cesta Básica (Benefícios)',
       total: 300,
-      cor: 'from-pink-500 to-pink-400',
-      icone: '📈', // Gráfico de crescimento
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🛒', // Alimentos / cesta básica
       abas: '/pages/entradas/previsao',
     },
     {
-      nome: 'Venda de Imobilizado',
+      nome: 'Medicina do Trabalho, Uniforme e Outros',
       total: 270,
-      cor: 'from-pink-500 to-pink-400',
-      icone: '🏠', // Imóvel ou bem físico
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '⚕️', // Saúde / trabalho
       abas: '/pages/entradas/imobilizado',
     },
     {
-      nome: 'Total das Entradas',
+      nome: 'Despesas Sindicais',
       total: 940,
-      cor: 'from-pink-500 to-pink-400',
-      icone: '🧾', // Documento com totais ou consolidação
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🤝', // Sindicato / acordo
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Prêmios & Bonificações',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🏆', // Prêmio
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Pró-labore',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '👔', // Pagamento a sócios
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Tarifas Públicas',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '💡', // Contas públicas (energia, água)
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Contabilidade & Legal',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '⚖️', // Advocacia / contabilidade
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Jurídico & Passivos',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '📜', // Acordos / obrigações
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Aluguel + IPTU',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🏠', // Imóvel
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Material Escritório & Limpeza',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🧹', // Limpeza
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Seguro Equipamentos & Predial',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🛡️', // Proteção / seguro
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Royalties & Licenças',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '📄', // Licença
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Despesas Bancárias',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🏦', // Banco
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Software',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '💻', // Tecnologia
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Gráficas',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🖨️', // Impressão
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Manutenção Prediais',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🏢', // Prédio
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Manutenção Equipamentos',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '⚙️', // Equipamentos
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Acessórios',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🎒', // Acessórios
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Descartáveis & Lavanderia',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '🧺', // Lavanderia
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Outras Despesas',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '📦', // Outros
+      abas: '/pages/entradas/total',
+    },
+    {
+      nome: 'Total Despesas & Custos Fixos',
+      total: 940,
+      cor: 'from-indigo-500 to-indigo-400',
+      icone: '📊', // Total consolidado
       abas: '/pages/entradas/total',
     },
   ];
@@ -86,7 +212,7 @@ export default function FluxoPage() {
               ☰ Menu
             </button>
             <span className="text-sm text-gray-600 font-medium">
-              Custo Fixo
+              Despesas & Custos Fixos
             </span>
           </div>
         )}
@@ -110,47 +236,57 @@ export default function FluxoPage() {
 
             <hr className="border-gray-700 mb-4" />
 
-            {/* Menu: LANÇAMENTO ENTRADAS */}
-            <div>
+            {/* Menu: Despesas & Custos Fixos */}
+            <div className="mt-4">
               <button
-                onClick={() => toggleSubmenu('lancamento')}
+                onClick={() => toggleSubmenu('custosFixos')}
                 className="w-full flex justify-between items-center px-2 py-0 hover:bg-gray-800 rounded"
               >
-                <span>Lançamento Entradas</span>
-                <span>{submenuOpen['lancamento'] ? '⬆️' : '⬇️'}</span>
+                <span>Despesas & Custos Fixos</span>
+                <span>{submenuOpen['custosFixos'] ? '⬆️' : '⬇️'}</span>
               </button>
-              {submenuOpen['lancamento'] && (
-                <ul className="ml-4 mt-2 space-y-1">
-                  <li>
-                    <a href="#" className="block hover:text-blue-400">
-                      Entradas (Sistema)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block hover:text-blue-400">
-                      Empréstimos
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block hover:text-blue-400">
-                      Previsão Vendas
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block hover:text-blue-400">
-                      Venda Imobilizado
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block hover:text-blue-400">
-                      Resgate Financeiro
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block hover:text-blue-400">
-                      Total Entradas
-                    </a>
-                  </li>
+
+              {submenuOpen['custosFixos'] && (
+                <ul className="ml-4 mt-2 space-y-1 text-sm">
+                  {[
+                    'Pagamento do Pessoal',
+                    'Encargos Sociais',
+                    'Vale Transporte',
+                    'Cesta Básica (Benefícios)',
+                    'Medicina do Trabalho, Uniforme e Outros',
+                    'Despesas Sindicais',
+                    'Prêmios & Bonificações',
+                    'Pró-labore',
+                    'Tarifas Públicas',
+                    'Contabilidade & Legal',
+                    'Jurídico & Passivos',
+                    'Aluguel + IPTU',
+                    'Material Escritório & Limpeza',
+                    'Seguro Equipamentos & Predial',
+                    'Royalties & Licenças',
+                    'Despesas Bancárias',
+                    'Software',
+                    'Gráficas',
+                    'Manutenção Prediais',
+                    'Manutenção Equipamentos',
+                    'Acessórios',
+                    'Descartáveis & Lavanderia',
+                    'Outras Despesas',
+                    'Total Despesas & Custos Fixos',
+                  ].map((item, idx) => (
+                    <li key={idx}>
+                      <a
+                        href="#"
+                        className={`block hover:text-blue-500 ${
+                          item.includes('Totalx')
+                            ? 'font-bold text-blue-700'
+                            : ''
+                        }`}
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               )}
             </div>

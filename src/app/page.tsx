@@ -70,7 +70,7 @@ export default function Home() {
           >
             Entrar
           </button>
-          <span className="text-[10px] text-gray-600">Versão 1.0.7</span>
+          <span className="text-[10px] text-gray-600">Versão 1.0.9</span>
         </form>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { AuthGuard } from '@/components/AuthGuard';
 import { useState } from 'react';
 import Image from 'next/image';
+import { Header } from '@/components/Header';
 
 export default function FluxoPage() {
   const router = useRouter();
@@ -51,11 +52,11 @@ export default function FluxoPage() {
       abas: '/pages/marketing',
     },
     {
-      nome: 'Custo Fixo',
+      nome: 'Despesas & Custos Fixos',
       total: 300,
       cor: 'from-indigo-500 to-indigo-400',
       icone: '🏢',
-      abas: '/pages/custoF',
+      abas: '/pages/custosF',
     },
     {
       nome: 'Imposto & Comissões',
@@ -97,36 +98,14 @@ export default function FluxoPage() {
   return (
     <AuthGuard>
       <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900 relative">
-        {/* Botão para abrir Sidebar */}
-        {!sidebarOpen && (
-          <div className="fixed top-4 left-4 z-50 flex items-center space-x-2">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className=" top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-            >
-              ☰ Menu
-            </button>
-            <span className="text-sm text-gray-600 font-medium">
-              Principal
-            </span>
-          </div>
-        )}
 
-        {!sidebarOpen && (
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="absolute top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          >
-            ☰ Menu
-          </button>
-        )}
+        {/* <Header setSidebarOpen={setSidebarOpen} /> */}
+        <Header setSidebarOpen={setSidebarOpen} title="Fluxo" />
 
         {/* Sidebar */}
         {sidebarOpen && (
-          // <aside className="w-64 bg-[#0d1224] text-white p-4 fixed top-0 left-0 h-full z-40 shadow-lg">
           <aside className="w-80 bg-[#0d1224] text-white p-4 overflow-y-auto max-h-screen fixed top-0 left-0 h-full z-40 shadow-lg">
             {/* Logo + Fechar */}
-            {/* <div className="flex items-center justify-between mb-6"> */}
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-blue-400">Fluxo</h2>
               <button
@@ -303,8 +282,8 @@ export default function FluxoPage() {
                     'Prêmios & Bonificações',
                     'Pró-labore',
                     'Tarifas Públicas',
-                    'Contábil & Legal',
-                    'Passivos Trabalhistas',
+                    'Contabilidade & Legal',
+                    'Jurídico & Passivos',
                     'Aluguel + IPTU',
                     'Material Escritório & Limpeza',
                     'Seguro Equipamentos & Predial',
@@ -312,12 +291,12 @@ export default function FluxoPage() {
                     'Despesas Bancárias',
                     'Software',
                     'Gráficas',
-                    'Despesas Prediais',
-                    'Equipamentos',
+                    'Manutenção Prediais',
+                    'Manutenção Equipamentos',
                     'Acessórios',
-                    'Lavanderia',
+                    'Descartáveis & Lavanderia',
                     'Outras Despesas',
-                    'Total Custos Fixos',
+                    'Total Despesas & Custos Fixos',
                   ].map((item, idx) => (
                     <li key={idx}>
                       <a
@@ -491,9 +470,7 @@ export default function FluxoPage() {
                 className="rounded-full"
               />
               <div>
-                <p className="text-sm font-semibold text-blue-400">
-                  Olá, Rodrigo!
-                </p>
+                <p className="text-sm font-semibold text-blue-400">Rodrigo</p>
                 <p className="text-xs text-gray-400">3 novas mensagens</p>
               </div>
             </div>
@@ -501,8 +478,8 @@ export default function FluxoPage() {
         )}
 
         {/* Conteúdo Principal */}
-        <main className="flex-1 flex flex-col items-center justify-center p-1 ml-0 lg:ml-64">
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 place-items-center">
+        <main className="flex-1 flex flex-col items-center justify-start p-1 pt-[70px] ml-0 lg:ml-64">
+          <div className="mt-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 place-items-center">
             {categorias.map((cat, i) => (
               <button
                 key={i}
