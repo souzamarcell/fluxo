@@ -63,7 +63,7 @@ export default function FluxoPage() {
       total: 270,
       cor: 'from-yellow-500 to-yellow-400',
       icone: '📊',
-      abas: '/pages/impostos',
+      abas: '/pages/impostosComissoes',
     },
     {
       nome: 'Investimentos',
@@ -368,7 +368,7 @@ export default function FluxoPage() {
                   </li>
                   <li>
                     <a href="#" className="block hover:text-blue-400">
-                      Aplicações Financeia
+                      Aplicações Financeiras
                     </a>
                   </li>
                   <li>
