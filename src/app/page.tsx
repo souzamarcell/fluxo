@@ -12,7 +12,10 @@ export default function Home() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (email === 'rodrigo@gmail.com' && senha === '123') {
+    if (
+      (email === 'rodrigo@gmail.com' && senha === '123') ||
+      (email === 'marcell@gmail.com' && senha === '123')
+    ) {
       setErro('');
       localStorage.setItem('loggedIn', 'true'); // <-- Marca como logado
       router.push('pages/menu');
@@ -70,7 +73,7 @@ export default function Home() {
           >
             Entrar
           </button>
-          <span className="text-[10px] text-gray-600">Versão 1.0.9</span>
+          <span className="text-[10px] text-gray-600">Versão 1.1.0</span>
         </form>
       </div>
     </div>

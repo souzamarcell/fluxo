@@ -96,5 +96,28 @@
   "terminal.integrated.defaultProfile.windows": "Git Bash",
 
   "cSpell.language": "en,pt,pt_BR",
-  "cSpell.words": ["emprestimos", "Graficos", "lancamento", "Xmateria"]
+  "cSpell.words": [
+    "acessorios",
+    "Basica",
+    "Bonificacoes",
+    "Botao",
+    "comissoes",
+    "descartaveis",
+    "Devolucoes",
+    "emprestimos",
+    "Escritorio",
+    "graficas",
+    "Graficos",
+    "icone",
+    "juridico",
+    "lancamento",
+    "Licencas",
+    "Manutencao",
+    "premios",
+    "relatorios",
+    "Variaveis",
+    "variavel",
+    "vestuario",
+    "Xmateria"
+  ]
 }

@@ -302,7 +302,7 @@ export default function FluxoPage() {
                       <a
                         href="#"
                         className={`block hover:text-blue-500 ${
-                          item.includes('Totalx')
+                          item.includes('Total_Nulo')
                             ? 'font-bold text-blue-700'
                             : ''
                         }`}
